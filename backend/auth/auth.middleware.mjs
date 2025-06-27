@@ -16,23 +16,3 @@ export function verificarToken (req, res, next){
         next();
     })
 }
-
-
-//Ver si va o no esta función
-export function verificarTokenHTML(req, res, next) {
-    const token = req.cookies.token;
-    
-    if (!token) {
-        return res.redirect('/admin/index.html');
-    }
-
-    try {
-        const decoded = jwt.verify(token, FRASE_SECRETA);
-        req.usuario = decoded;
-        next();
-    } catch (error) {
-        console.error('Token inválido:', error.message);
-        res.clearCookie('token');
-        return res.redirect('/admin/index.html');
-    }
-}

@@ -1,39 +1,20 @@
-# Proyecto Tienda Full Stack
+## Proyecto Tienda Full Stack
 Este proyecto es una tienda web de venta de bebidas que permite visualizar productos, filtrarlos por categoría y gestionar el 
-inventario mediante un panel administrativo (CRUD).
+inventario mediante un panel administrativo (CRUD).Incluye autenticación con JWT y conexión a base de datos PostgreSQL mediante Docker.
 
-## 🧩 Requisitos
+# Requisitos
 
 - Docker y Docker Desktop
 - Node.js >= 18
 
-## Iniciar base de datos con Docker
 
-```bash
-docker run --name tienda-postgres \
-  -e POSTGRES_USER=admin \
-  -e POSTGRES_PASSWORD=admin123 \
-  -e POSTGRES_DB=tienda \
-  -p 5432:5432 \
-  -d postgres
+# Base de datos con Docker
+Todos los pasos para crear la base de datos con las tablas productos y usuarios están en:
+./backend/pg-docker/instrucciones.txt
 
--- Esto es para iniciarla, pero asegurarse tenerla corriendo en Docker cada vez que se esté corriendo el servidor y se desee consumirla. 
+Incluye: creación de imagen con Docker, Ejecución del contenedor PostgreSQL y acceso con psql para verificar las tablas
 
-## CREAR TABLA PRODUCTOS 
-CREATE TABLE productos (
-  id SERIAL PRIMARY KEY,
-  nombre VARCHAR(100) NOT NULL,
-  precio DECIMAL(10, 2) NOT NULL,
-  imagen TEXT,
-  categoria TEXT
-);
-
-
-## Acceder a la base de datos desde la terminal:  
-docker exec -it tienda-postgres psql -U admin -d tienda
-De ahí nos debería devolver 'tienda=#' y ya está listo para hacerle consulta o algún comando SQL
-
-## Backend (instalación y ejecución). Posicionados en la carptea raíz del proyecto, ejecutamos:
+# Backend (instalación y ejecución). Posicionados en la carptea raíz del proyecto, ejecutamos:
 · cd backend
 · npm install
 · npm run dev 
@@ -41,10 +22,22 @@ De ahí nos debería devolver 'tienda=#' y ya está listo para hacerle consulta 
 
 # Frontend
 · Tienda: http://localhost:3000/index.html 
-· CRUD: http://localhost:3000/admin.html
+· Login: http://localhost:3000/admin/ 
+· Panel administrativo CRUD (solo autenticados): http://localhost:3000/admin/dashboard/admin.html
 
-##Cargar productos de prueba 
-1. Con el servidor corriendo, acceder a http://localhost:3000/admin.html
+# Autenticación 
+Crear el primer usuario
+1. Acceder a http://localhost:3000/admin/registrar
+2. Completar el formulario de registro
+3. Se redirige automáticamente al login
+
+# Iniciar sesión 
+1. Acceder a http://localhost:3000/admin/ 
+2. Ingresar credenciales 
+3. Si son válidas, redirige al panel administrativo 
+
+# Cargar productos de prueba 
+1. Con el servidor corriendo, acceder a http://localhost:3000/admin/dashboard/admin.html
 2. Completar los campos del formulario de productos con la siguiente información:
 3. Las imágenes ya están incluidas dentro del proyecto, no es necesario subirlas
 
@@ -57,30 +50,35 @@ Gin Aconcagua azul	        Gin	          1400.00	  ./recursos/imagenes/bebidas/G
 Stella Artois x 473cc	      Cervezas	    900.00	  ./recursos/imagenes/bebidas/CERVEZA-STELLA-ARTOIS-X-473CC.jpg
 Whisky Jack Daniels x 750	  Whisky	      5000.00	  ./recursos/imagenes/bebidas/WHISKY-JACK-DANIELS-X-750.jpg
 
-Luego de cargados verlos en http://localhost:3000/catalogo.html 
+Luego  verlos en http://localhost:3000/catalogo.html 
 
 ## API REST
+Pública
 · GET /api/v1/productos → Lista todos los productos (público)
 · GET /api/v1/productos/:id → Trae un producto por ID
-· GET /api/v1/admin/productos → Lista productos (uso administrativo)
+
+Protegida (requiere autenticación)
+· GET /api/v1/admin/productos → Lista productos 
 · POST /api/v1/admin/productos → Crea un producto
-·PUT /api/v1/admin/productos/:id → Actualiza un producto
+· PUT /api/v1/admin/productos/:id → Actualiza un producto
 · DELETE /api/v1/admin/productos/:id → Elimina un producto
 
-# COMO FUNCIONA
-· El backend está hehco con Express
-· La base de datos es PostgreSQL, y se conecta usando Docker
-· El frontend está hecho en HTML/CSS/JS
-· Los productos se cargan dinámicamente mediante fetch() a la API 
-· Las imágenes deben estar en la carpeta recursos/imagenes/bebidas
+# TECNOLOGÍAS
+· Backend: Express + PostgreSQL
+· Base de datos: PostgreSQL con Docker
+· Frontend: HTML/CSS/JS
+· Autenticación: JWT + Cookies
+· ORM: pg (Pool de conexión)
 
-# CRUD - Panel administrativo(admin.html)
+# CRUD - Panel administrativo
 · Permite agregar, editar y eliminar productos
+· Requiere login previo con JWT
+· Usa fetch() hacia endpoints /api/v1/admin/productos
 · Los campos requeridos son: nombre, categoría, precio e imagen.
-· Al guardar, los datos se almacenan en PostgreSQL a través de la API  /api/v1/admin/productos.
+· Las imágenes deben estar en recursos/imagenes/bebidas
 
-#Endpoints útiles
-· Ver todos los productos: http://localhost:3000/api/v1/productos
-· Ver producto por ID: http://localhost:3000/api/v1/productos/1 
-· Ver API administrativa http://localhost:3000/api/v1/admin/productos 
+# Endpoints útiles
+· Todos los productos: http://localhost:3000/api/v1/productos
+· Producto por ID: http://localhost:3000/api/v1/productos/1
+· API administrativa http://localhost:3000/api/v1/admin/productos 
 

@@ -1,0 +1,16 @@
+# 1. Crear imagen de la base de datos
+docker build -t imagen_tienda ./pg-docker
+
+# 2. Crear contenedor con base 'tienda'
+docker run --name tienda-postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=tienda -p 5432:5432 -d imagen_tienda
+
+# 3. Acceder al contenedor 
+docker exec -it tienda-postgres bash
+
+# 4. Ingresar al cliente psql
+psql -U admin -d tienda
+
+# 5. Verificar tablas
+\dt
+SELECT * FROM productos;
+SELECT * FROM usuarios;

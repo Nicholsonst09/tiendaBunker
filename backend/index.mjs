@@ -6,7 +6,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url';
 
 import rutasAuth from './auth/auth.rutas.mjs';
-import {verificarToken, verificarTokenHTML } from './auth/auth.middleware.mjs';
+import {verificarToken } from './auth/auth.middleware.mjs';
 
 import productos from "./productos/productosPublicos.rutas.mjs"
 import productosCRUD from "./productos/productosCRUD.rutas.mjs"
@@ -38,7 +38,7 @@ app.use('/admin', express.static(path.join(__dirname, 'login')));
 app.use('/admin/registrar', express.static(path.join(__dirname, 'login/alta.html')));
 
 //Panel de administración
-app.use('/admin/dashboard', verificarTokenHTML, express.static(path.join(__dirname, '../frontend/CRUD'))); 
+app.use('/admin/dashboard', verificarToken, express.static(path.join(__dirname, '../frontend/CRUD'))); 
 
 //FRONTEND (público) Tienda 
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -55,5 +55,8 @@ app.listen(PUERTO, () => {
     console.log('Login: http://localhost:3000/admin/');
     console.log('Registro: http://localhost:3000/admin/registrar');
     console.log('Panel administrativo: http://localhost:3000/admin/dashboard/admin.html');
+    console.log('API administrativa: http://localhost:3000/api/v1/admin/productos ');
     console.log('Tienda: http://localhost:3000/');
+    console.log('Productos: http://localhost:3000/api/v1/productos');
+    console.log('Productos por ID: http://localhost:3000/api/v1/productos/8 ');
 })
