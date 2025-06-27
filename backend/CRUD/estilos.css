@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+    background: #f8f9fa;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 1rem;
+}
+
+select, input {
+    margin: 0.3rem;
+    padding: 0.4rem;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background: #dee2e6;
+}
+
+img {
+    border-radius: 4px;
+}

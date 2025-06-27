@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="recursos/css/estilos.css">
+    <script type="module" src="recursos/js/contacto.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="encabezado">
+        <a href="index.html">
+            <img src="recursos/imagenes/logos/13.jpg" alt="Logo header" width="50" height="50">
+            <!-- <span>BUNKER BEBIDAS</span> -->
+        </a>
+        <nav class="navegador">
+            <ul class="nav__menu">
+                <li onmousedown="esconderNavMenu()">
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="catalogo.html">CATÁLOGO</a></li>
+                <li><a href="sucursales.html">SUCURSALES</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+                <li>
+                    <a href="carrito.html">
+                        <img src="recursos/imagenes/logos/shopping-cart.png" alt="Imagen del carrito de compras" width="30" height="30">
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li class="esconder-menu"><a href="index.html">INICIO</a></li>
+                <li class="esconder-menu"><a href="catalogo.html">CATÁLOGO</a></li>
+                <li class="esconder-menu"><a href="sucursales.html">SUCURSALES</a></li>
+                <li class="esconder-menu"><a href="contacto.html">CONTACTO</a></li>
+                <li class="esconder-menu">
+                    <a href="carrito.html">
+                        <img src="recursos/imagenes/logos/shopping-cart.png" alt="Imagen del carrito de compras" width="30" height="30">
+                        <span id="carro-cantidad-items" class="carro-compras__items">0</span>
+                    </a>
+                </li>
+                <li class="boton-menu" onmousedown="mostrarNavMenu()">
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Función para abrir el menu -->
+        <script>
+            function mostrarNavMenu()
+            {
+                const nav__menu = document.querySelector('.nav__menu')
+                nav__menu.style.display = 'flex'
+            }
+            
+            function esconderNavMenu()
+            {
+                const nav__menu = document.querySelector('.nav__menu')
+                nav__menu.style.display = 'none'
+            }
+        </script>
+    </header>
+    <main class="principal-contacto">
+        <h1>CONTACTO</h1>
+        <div class="contenedor-contacto">
+            <form action="contacto.html" method="post" enctype="application/x-www-form-urlencoded">
+                <label for="id-nombre">
+                    TU NOMBRE
+                </label>
+                <br>
+                <input type="text" name="nombre" id="id-nombre" placeholder="Escribe tu nombre" size="30">
+                <br>
+                <br>
+                <label for="id-email">
+                    EMAIL
+                </label>
+                <br>
+                <input type="email" name="email" id="id-email" placeholder="Dirección de e-mail" size="30">
+                <br>
+                <br>
+                <label for="id-telefono">
+                    TELÉFONO
+                </label>
+                <br>
+                <input type="tel" name="telefono" id="id-telefono" placeholder="Número de teléfono" size="30">
+                <br>
+                <br>
+                <label for="id-consulta">
+                    CONSULTA
+                </label>
+                <br>
+                <textarea name="areaconsulta" id="id-consulta" placeholder="Escribe tu consulta" rows="5" cols="30"></textarea>
+                <br>
+                <br>
+                <button type="submit">
+                    ENVIAR
+                </button>
+            </form>
+        </div>
+    </main>
+    <footer class="pie">
+        <p>
+            TP APLICACIONES WEB 2 - 2025
+            <br>
+            ALEJO NICOLÁS PAREDES
+        </p>
+        <a href="https://www.instagram.com/bunkerbebidasok/" class="ig">
+            <img src="recursos/imagenes/logos/instagram.png" alt="Logo de instagram">             
+        </a>
+        <a href="https://wa.link/t9rrd6" class="ws">
+            <img src="recursos/imagenes/logos/whatsapp.png" alt="Logo de instagram">
+        </a>
+    </footer>
+</body>
+</html>

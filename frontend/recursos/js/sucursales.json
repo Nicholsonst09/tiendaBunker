@@ -1,0 +1,29 @@
+{
+    "sucursales": [
+      {
+        "id": 1,
+        "nombre": "Nueva Córdoba I",
+        "imagen": "./recursos/imagenes/local/01.jpg"
+      },
+      {
+        "id": 2,
+        "nombre": "Sucursal 2",
+        "imagen": "./recursos/imagenes/local/01.jpg"
+      },
+      {
+        "id": 3,
+        "nombre": "Sucursal 3",
+        "imagen": "./recursos/imagenes/local/01.jpg"
+      },
+      {
+        "id": 4,
+        "nombre": "Sucursal 4",
+        "imagen": "./recursos/imagenes/local/01.jpg"
+      },
+      {
+        "id": 5,
+        "nombre": "Sucursal 5",
+        "imagen": "./recursos/imagenes/local/01.jpg"
+      }
+    ]
+  }

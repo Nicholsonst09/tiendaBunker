@@ -1,0 +1,46 @@
+{
+    "productos": [
+    {
+      "id": 1,
+      "nombre": "Gin Aconcagua blanco",
+      "imagen": "./recursos/imagenes/bebidas/GIN ACONCAGUA BLANCO__1.jpg",
+      "precio": 1100,
+      "categoria": "Gin"
+    },
+    {
+      "id": 2,
+      "nombre": "Gin Aconcagua verde",
+      "imagen": "./recursos/imagenes/bebidas/GIN ACONCAGUA VERDE__1.jpg",
+      "precio": 1200,
+      "categoria": "Gin"
+    },
+    {
+      "id": 3,
+      "nombre": "Gin Aconcagua rosa",
+      "imagen": "./recursos/imagenes/bebidas/GIN ACONCAGUA PINK__1.jpg",
+      "precio": 1300,
+      "categoria": "Gin"
+    },
+    {
+      "id": 4,
+      "nombre": "Gin Aconcagua azul",
+      "imagen": "./recursos/imagenes/bebidas/GIN ACONCAGUA__1.jpg",
+      "precio": 1400,
+      "categoria": "Gin"
+    },
+    {
+      "id": 5,
+      "nombre": "Whisky Jack Daniels x 750",
+      "imagen": "./recursos/imagenes/bebidas/WHISKY JACK DANIELS X 750__1.jpg",
+      "precio": 2000,
+      "categoria": "Whisky"
+    },
+    {
+      "id": 6,
+      "nombre": "Stella Artois x 473cc",
+      "imagen": "./recursos/imagenes/bebidas/CERVEZA STELLA ARTOIS X 473CC__1.jpg",
+      "precio": 900,
+      "categoria": "Cervezas"
+    }
+  ]
+}

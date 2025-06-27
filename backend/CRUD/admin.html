@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de productos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Administrar Productos</h1>
+
+    <section>
+        <h2>Agregar / Editar Producto</h2>
+        <form id="formProducto">
+        <input type="hidden" id="productoId">
+        <input type="text" id="nombre" name= "nombre" placeholder="Nombre" required>
+        <select id="categoria" name="categoria" required>
+            <option value="">Seleccione una categoría</option>
+            <option value="Vinos">Vinos</option>
+            <option value="Gaseosas">Gaseosas</option>
+            <option value="Gin">Gin</option>
+            <option value="Licores">Licores</option>
+            <option value="Espumantes">Espumantes</option>
+            <option value="Cervezas">Cervezas</option>
+            <option value="Whisky">Whisky</option>
+            <option value="Aperitivos">Aperitivos</option>
+        </select>
+        <input type="number" id="precio" name= "precio" placeholder="Precio" required>
+        <input type="text" id="imagen" name= "imagen" placeholder="URL de imagen">
+        <button type="submit">Guardar</button>
+        <button type="button" onclick="cancelarEdicionDeProductos()">Cancelar</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Lista de Productos</h2>
+        <table border="1">
+        <thead>
+            <tr>
+            <th>ID</th><th>Nombre</th><th>Categoria</th><th>Precio</th><th>Imagen</th><th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaProductos"></tbody>
+        </table>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>
