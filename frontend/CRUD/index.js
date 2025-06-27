@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
         });
     }
 
-    form.reset();
+    form.reset();    
     cargarProductos();
 })
 
@@ -73,6 +73,10 @@ async function eliminarProducto(id) {
         await fetch(`${urlBase}/${id}`, { method: 'DELETE' });
         cargarProductos();
     }
+}
+
+function logout(){
+    window.location.href = "/logout";
 }
 
 cargarProductos()

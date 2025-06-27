@@ -1,0 +1,22 @@
+# Crear imagen de la base de datos
+docker build -t imagen_auth ./docker-pg-auth
+
+# Correr el contenedor
+docker run --name contenedor_auth \
+  -e POSTGRES_USER=root \
+  -e POSTGRES_PASSWORD=pass123! \
+  -e POSTGRES_DB=auth \
+  -p 5432:5432 \
+  -d imagen_auth
+
+#Entrar al contenedor
+docker exec -it contenedor_auth bash
+
+////// Dentro del contenedor ejecutar:
+psql -U adminauth -d auth
+////// Indicar la clave
+Password: 
+
+////// Ejecutar consulta
+SELECT * FROM usuarios;
+////// debemos ver los usuarios insertados... 
